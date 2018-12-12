@@ -1,0 +1,9 @@
+
+
+.square span {
+    font-size: 60px;
+    display: block;
+    position: absolute;
+    width: 60px;
+    margin-left: 24px;
+}
