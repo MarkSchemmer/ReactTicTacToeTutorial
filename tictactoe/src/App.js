@@ -14,7 +14,6 @@ import './App.css';
   I could hard code the coordinates or I could change the program to work with 
   multidimensions 
 
-
   I solved this issue by making squares a multi dimensional array
   then just passing through the right index to the clickSquare function
   and in the calculateWinner function I just flattened the multi dimensional array 
@@ -29,16 +28,28 @@ class App extends Component {
     super(props)
     this.state = {
       xIsNext:true,
-      history :  [ { squares : multiDimTicTacScoreBoard, move:null } ] ,
+      _history : [ { squares : multiDimTicTacScoreBoard, move:0, coordinates:null } ],
+      history :  [ { squares : multiDimTicTacScoreBoard, move:0, coordinates:null } ] ,
       stepNumber:0,
+      hasGameToStartAtTop:true 
     }
     this.clickSquare = this.clickSquare.bind(this)
     this.jumpTwo = this.jumpTwo.bind(this)
+    this.toggleMoves = this.toggleMoves.bind(this)
   }
 
 
-  
+  toggleMoves () {
+
+    let newHistory = this.state.history.reverse()
+
+    this.setState( (prevState) => ({
+      history : newHistory, 
+    }))
+  }
+
   clickSquare(x,y) {
+    window.hist = this.state.history
     let history = this.state.history.slice(0, this.state.stepNumber+1)
     let current = history[history.length-1]
     let squares = current.squares.slice().map(subLevels => subLevels.slice())
@@ -47,11 +58,11 @@ class App extends Component {
 
       if(squares[x][y] === null){ 
         squares[x][y] = this.state.xIsNext ? 'X' : 'O'
-        this.setState({
-            history : history.concat( { squares: squares, move:[x,y] } ), 
+        this.setState( (prevState) => ({
+            history : history.concat( { squares: squares, move: current.move+1 , coordinates:[x,y] } ), 
             stepNumber : history.length, 
             xIsNext : !this.state.xIsNext
-        })
+        }))
       }
 }
 
@@ -70,14 +81,16 @@ jumpTwo(step){
 }
 
 
+
   render() {
-    console.log(this.state.history[this.state.stepNumber])
     return (
       <div className="App">
         <header className="App-header">
         </header>
         <PastMoves 
-          jumpTo={this.jumpTwo} history={this.state.history}  />
+          jumpTo={this.jumpTwo} 
+          history={this.state.history} 
+          toggle={this.toggleMoves}  />
         <Board 
             toggle={this.togglePlayer} 
             xIsNext={this.state.xIsNext}

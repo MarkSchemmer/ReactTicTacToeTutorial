@@ -15,8 +15,9 @@ class Move extends React.Component {
         }, () => {
             this.props.jumpTo(move)
         })
-       
     }
+
+
 
     render() {
 
@@ -24,9 +25,11 @@ class Move extends React.Component {
             padding:'5px'
         }
 
-        const { jumpTo, move, desc } = this.props
+        const {  move, desc } = this.props
         return (
-            <button  style={buttonStyle} onClick={() => jumpTo(move)}>
+            <button
+            onBlur={() => this.setState({ canHighlight : false })}  
+            style={buttonStyle} onClick={() => this.handleClick(move)}>
               {this.state.canHighlight ? <strong>{desc}</strong> : desc  } 
             </button>
         )
