@@ -24,7 +24,8 @@ class PastMoves extends React.Component {
             return (
                 <ul>
                    {history.map((step, move) => {
-                    const desc = move ? `Go to move # ${move}` : 'Go to game start'
+                    
+                    const desc = move ? `Go to move # ${move}  x:${step.move[0]} y:${step.move[1]}` : 'Go to game start'
                     return (<li style={{ zIndex:'100'}} key={move}>
                         <button style={buttonStyle} onClick={() => jumpTo(move)}>{desc}</button>
                    </li> )}) }

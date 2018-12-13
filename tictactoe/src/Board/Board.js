@@ -37,12 +37,15 @@ const Board = (props) => {
           <div style={boardStyles} id="board">
                     { status }
                 {
-                    squares.map((obj,idx) => {
-                        return <Square 
-                        key={idx} 
-                        click={click} 
-                        squareNumber={idx} 
-                        value={obj} />
+                    squares.map((level,x) => {
+                       return  level.map( (subLevel, y) => {
+                            return <Square 
+                                key={x+y} 
+                                click={click} 
+                                squareNumber={[x,y]} 
+                                value={subLevel} />
+
+                       })
                     })
                 }
           </div>

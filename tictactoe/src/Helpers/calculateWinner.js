@@ -4,7 +4,8 @@ export const X = 'X', O = 'O';
 
 
 
-export function calculateWinner(squares) {
+export function calculateWinner(_squares) {
+  let squares = _squares.reduce((acc, cur) => acc.concat(cur), [])
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
