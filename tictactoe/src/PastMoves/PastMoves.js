@@ -8,21 +8,32 @@ class PastMoves extends React.Component {
         this.state = { }
     }
 
+    // need to implement a jumpTo() method 
+    // which will go to that certain move 
+
+
     render() {
-        const { history } = this.props
+        const { history, jumpTo } = this.props
+
+        const buttonStyle = {
+            padding:'5px'
+        }
+
         const pastMoves = () => {
+
             return (
                 <ul>
-                    {/* {history[history.length-1].squares.} */}
+                   {history.map((step, move) => {
+                    const desc = move ? `Go to move # ${move}` : 'Go to game start'
+                    return (<li style={{ zIndex:'100'}} key={move}>
+                        <button style={buttonStyle} onClick={() => jumpTo(move)}>{desc}</button>
+                   </li> )}) }
                 </ul>
             )
         }
         return (
          <React.Fragment>
-                    { 
-                        history[history.length-1].squares.length>0 ?  
-                            <div className="past-moves"></div> : null
-                    }
+                    { <div className="past-moves">{pastMoves()}</div>  }
          </React.Fragment>
         )
     }

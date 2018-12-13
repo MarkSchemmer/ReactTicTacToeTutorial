@@ -1,12 +1,10 @@
 export const gameOptions = { TIE : 1 }
 
-export const X = 'X', O = 'O'
+export const X = 'X', O = 'O';
 
-export const squares = () => [...Array(9).keys()].map(idx =>  { return { idx:idx+1, val:null } } )
 
 
 export function calculateWinner(squares) {
-    console.log(squares)
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -19,14 +17,13 @@ export function calculateWinner(squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a].val && squares[a].val === squares[b].val && squares[a].val === squares[c].val) {
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a]
       }
     }
 
-    if(squares.every(x => x.val !== null )){
-        return gameOptions.TIE
-    }
+    if(squares.every(item => item !== null ))
+      return gameOptions.TIE
 
     return null 
   }

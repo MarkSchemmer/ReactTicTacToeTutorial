@@ -12,38 +12,37 @@ const Board = (props) => {
     */
 
 
-   const { history, click, xIsNext, determineTile } = props
+   const { squares, click, xIsNext } = props
 
        const boardStyles = {
            width:'400px',
            height:'600px',
            margin:'auto'
        }
-
-       let winner = _.calculateWinner(history[history.length-1].squares)
-       winner = winner ? winner.val : winner 
+       let winner = _.calculateWinner(squares)
        let status 
        if(winner === _.X){
          status = <h3>Player X wins</h3>
        } else if (winner === _.O){
          status = <h3>Player O wins</h3> 
-       } else if (winner === _.gameOptions.TIE){
-           status = <h3>Tie game</h3>
+       } else if(winner === _.gameOptions.TIE) {
+           status = <h3>Tie Game!</h3>
        } else {
-           status = <h3>Next Player: <strong> { determineTile(xIsNext) } </strong></h3>
+           status = <h3>Next Player: <strong> { xIsNext ? 'X' : 'O' } </strong></h3>
        }
 
         return (
           <React.Fragment>
-            { status }
+
           <div style={boardStyles} id="board">
+                    { status }
                 {
-                    history[history.length-1].squares.map(obj => {
+                    squares.map((obj,idx) => {
                         return <Square 
-                        key={obj.idx} 
+                        key={idx} 
                         click={click} 
-                        squareNumber={obj.idx} 
-                        value={obj.val} />
+                        squareNumber={idx} 
+                        value={obj} />
                     })
                 }
           </div>
