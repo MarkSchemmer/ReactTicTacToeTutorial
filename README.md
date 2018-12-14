@@ -16,4 +16,4 @@ thing is I'm implementing all my solutions myself for this Tic-Tac-Toe problem. 
 
 <h3>A quick video of the final product:</h3>
 
-![] (tictactoe.gif)
+![TicTacToe] (blob:chrome-extension://ggaabchcecdbomdcnbahdfddfikjmphe/acb5aacc-9998-4abf-8e1b-3bbc5af5f63d)
