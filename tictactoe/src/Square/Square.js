@@ -3,7 +3,7 @@ import './Square.css'
 
 const Square = (props) => {
 
-    const { click, squareNumber, value } = props
+    const { click, squareNumber, value, isWinningSquare } = props
     const [x,y] = squareNumber
 
     const squareStyles = {
@@ -12,7 +12,8 @@ const Square = (props) => {
         border:'1px solid black',
         display:'inline-block',
         margin:'0',
-        marginRight:'2px'
+        marginRight:'2px',
+        backgroundColor: isWinningSquare ?  'yellow' : ''
     }
 
     return (

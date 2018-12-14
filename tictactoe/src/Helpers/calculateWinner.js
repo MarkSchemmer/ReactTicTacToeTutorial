@@ -18,12 +18,12 @@ export function calculateWinner(_squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a]
+      if (squares[a].val && squares[a].val === squares[b].val && squares[a].val === squares[c].val) {
+        return { winner : squares[a].val, coordinates : [squares[a], squares[b], squares[c]] } 
       }
     }
 
-    if(squares.every(item => item !== null ))
+    if(squares.every(item => item.val !== null ))
       return gameOptions.TIE
 
     return null 

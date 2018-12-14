@@ -12,15 +12,27 @@ const Board = (props) => {
     */
 
 
-   const { squares, click, xIsNext } = props
+   const { squares, click, xIsNext, winningSquares } = props
 
        const boardStyles = {
            width:'400px',
            height:'600px',
            margin:'auto'
        }
-       let winner = _.calculateWinner(squares)
-       let status 
+       let something = _.calculateWinner(squares)
+       console.log(something)
+       console.log( typeof something)
+       let status, winner 
+
+       if(typeof something === "object" && something !== null){
+            winner = something.winner
+            console.log(something.coordinates)
+            winningSquares(something.coordinates)
+            
+       } else {
+           winner = something
+       }
+
        if(winner === _.X){
          status = <h3>Player X wins</h3>
        } else if (winner === _.O){
@@ -43,7 +55,8 @@ const Board = (props) => {
                                 key={x+y} 
                                 click={click} 
                                 squareNumber={[x,y]} 
-                                value={subLevel} />
+                                isWinningSquare={subLevel.isWinningSquare}
+                                value={subLevel.val} />
 
                        })
                     })

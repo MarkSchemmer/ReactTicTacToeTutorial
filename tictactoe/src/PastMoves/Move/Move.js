@@ -10,10 +10,11 @@ class Move extends React.Component {
     }
 
     handleClick(move){
+
         this.setState({
             canHighlight : true 
         }, () => {
-            this.props.jumpTo(move)
+            this.props.jumpTo(move, 'FROM MOVE')
         })
     }
 

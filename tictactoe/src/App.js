@@ -20,7 +20,8 @@ import './App.css';
 
 */
 
-const multiDimTicTacScoreBoard = [...Array(3).keys()].map(level => [...Array(3).keys()].map(subLevel => null))
+const multiDimTicTacScoreBoard = [...Array(3).keys()]
+.map(level => [...Array(3).keys()].map(subLevel => ({val : null, coor:null, isWinningSquare:false}) ))
 
 class App extends Component {
 
@@ -28,7 +29,6 @@ class App extends Component {
     super(props)
     this.state = {
       xIsNext:true,
-      _history : [ { squares : multiDimTicTacScoreBoard, move:0, coordinates:null } ],
       history :  [ { squares : multiDimTicTacScoreBoard, move:0, coordinates:null } ] ,
       stepNumber:0,
       hasGameToStartAtTop:true 
@@ -36,6 +36,7 @@ class App extends Component {
     this.clickSquare = this.clickSquare.bind(this)
     this.jumpTwo = this.jumpTwo.bind(this)
     this.toggleMoves = this.toggleMoves.bind(this)
+    this.winningSquares = this.winningSquares.bind(this)
   }
 
 
@@ -49,17 +50,17 @@ class App extends Component {
   }
 
   clickSquare(x,y) {
-    window.hist = this.state.history
-    let history = this.state.history.slice(0, this.state.stepNumber+1)
+    let history = JSON.parse(JSON.stringify(this.state.history))
     let current = history[history.length-1]
-    let squares = current.squares.slice().map(subLevels => subLevels.slice())
+    let squares = current.squares.slice().map(subLevels => JSON.parse(JSON.stringify(subLevels)))
     if(_.calculateWinner(squares))
         return 
 
-      if(squares[x][y] === null){ 
-        squares[x][y] = this.state.xIsNext ? 'X' : 'O'
+      if(squares[x][y].val === null){ 
+        squares[x][y].val = this.state.xIsNext ? 'X' : 'O'
+        squares[x][y].coor = [x,y]
         this.setState( (prevState) => ({
-            history : history.concat( { squares: squares, move: current.move+1 , coordinates:[x,y] } ), 
+            history : prevState.history.concat( { squares: squares, move: history.length , coordinates:[x,y] } ), 
             stepNumber : history.length, 
             xIsNext : !this.state.xIsNext
         }))
@@ -73,11 +74,30 @@ togglePlayer() {
 }
 
 
-jumpTwo(step){
+jumpTwo(step, MOVE=''){
   this.setState({
     stepNumber : step,
     xIsNext : ( step % 2 ) === 0 
   })
+}
+
+winningSquares(_squares){
+  console.log('squares form winning squares ', _squares)
+  let history = JSON.parse(JSON.stringify(this.state.history))
+  let current = history[history.length-1]
+  let squares = current.squares.slice().map(subLevels => JSON.parse(JSON.stringify(subLevels)))
+  const [a, b, c] = _squares
+  let arr = [a,b,c]
+
+  arr.forEach(ele => {
+    ele.isWinningSquare = true
+    let x = ele.coor[0], y = ele.coor[1] 
+    squares[x][y] = ele 
+  })
+
+  current.squares = squares
+  history[history.length-1] = current
+
 }
 
 
@@ -95,6 +115,7 @@ jumpTwo(step){
             toggle={this.togglePlayer} 
             xIsNext={this.state.xIsNext}
             click={this.clickSquare} 
+            winningSquares={this.winningSquares}
             squares={this.state.history[this.state.stepNumber].squares} />
       </div>
     );
