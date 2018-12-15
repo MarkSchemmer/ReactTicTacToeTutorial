@@ -1,16 +1,11 @@
 import React from 'react'
 import Square from '../Square/Square'
+import PropTypes from 'prop-types'
 
 import * as _ from '../Helpers/calculateWinner'
 
 
 const Board = (props) => {
-
-    /*
-    //JSON.parse(JSON.stringify(this.state.squares))
-     is an alternative to cloning the array of objects...
-    */
-
 
    const { squares, click, xIsNext, winningSquares } = props
 
@@ -19,16 +14,13 @@ const Board = (props) => {
            height:'600px',
            margin:'auto'
        }
+
        let something = _.calculateWinner(squares)
-       console.log(something)
-       console.log( typeof something)
        let status, winner 
 
        if(typeof something === "object" && something !== null){
             winner = something.winner
-            console.log(something.coordinates)
             winningSquares(something.coordinates)
-            
        } else {
            winner = something
        }
@@ -52,12 +44,11 @@ const Board = (props) => {
                     squares.map((level,x) => {
                        return  level.map( (subLevel, y) => {
                             return <Square 
-                                key={x+y} 
+                                key={subLevel._id} 
                                 click={click} 
                                 squareNumber={[x,y]} 
                                 isWinningSquare={subLevel.isWinningSquare}
                                 value={subLevel.val} />
-
                        })
                     })
                 }
@@ -65,5 +56,12 @@ const Board = (props) => {
           </React.Fragment>
         )
     }
+
+ Board.propTypes = {
+    squares: PropTypes.array.isRequired,
+    click: PropTypes.func.isRequired,
+    xIsNext: PropTypes.bool.isRequired,
+    winningSquares: PropTypes.func.isRequired
+ }
 
 export default Board

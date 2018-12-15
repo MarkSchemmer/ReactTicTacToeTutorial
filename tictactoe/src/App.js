@@ -7,6 +7,7 @@ import './App.css';
 
 /*
 
+
   Adding X,Y coordinates for tic tac toe... 
 
   the current issue is that I only have a single dimensional array.
@@ -18,10 +19,15 @@ import './App.css';
   then just passing through the right index to the clickSquare function
   and in the calculateWinner function I just flattened the multi dimensional array 
 
+
 */
 
 const multiDimTicTacScoreBoard = [...Array(3).keys()]
-.map(level => [...Array(3).keys()].map(subLevel => ({val : null, coor:null, isWinningSquare:false}) ))
+.map(level => [...Array(3).keys()]
+.map(subLevel => ({ _id : Math.floor(Date.now()*Math.random(100)),  
+                    val : null, 
+                    coor:null, 
+                    isWinningSquare:false}) ))
 
 class App extends Component {
 
@@ -82,7 +88,6 @@ jumpTwo(step, MOVE=''){
 }
 
 winningSquares(_squares){
-  console.log('squares form winning squares ', _squares)
   let history = JSON.parse(JSON.stringify(this.state.history))
   let current = history[history.length-1]
   let squares = current.squares.slice().map(subLevels => JSON.parse(JSON.stringify(subLevels)))
@@ -94,10 +99,8 @@ winningSquares(_squares){
     let x = ele.coor[0], y = ele.coor[1] 
     squares[x][y] = ele 
   })
-
   current.squares = squares
   history[history.length-1] = current
-
 }
 
 
