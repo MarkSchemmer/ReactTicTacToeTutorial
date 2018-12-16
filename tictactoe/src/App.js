@@ -56,7 +56,8 @@ class App extends Component {
   }
 
   clickSquare(x,y) {
-    let history = JSON.parse(JSON.stringify(this.state.history))
+    let hist = this.state.history.slice(0, this.state.stepNumber + 1)
+    let history = JSON.parse(JSON.stringify(hist))
     let current = history[history.length-1]
     let squares = current.squares.slice().map(subLevels => JSON.parse(JSON.stringify(subLevels)))
     if(_.calculateWinner(squares))
@@ -66,7 +67,7 @@ class App extends Component {
         squares[x][y].val = this.state.xIsNext ? 'X' : 'O'
         squares[x][y].coor = [x,y]
         this.setState( (prevState) => ({
-            history : prevState.history.concat( { squares: squares, move: history.length , coordinates:[x,y] } ), 
+            history : history.concat( { squares: squares, move: history.length , coordinates:[x,y] } ), 
             stepNumber : history.length, 
             xIsNext : !this.state.xIsNext
         }))
@@ -80,7 +81,7 @@ togglePlayer() {
 }
 
 
-jumpTwo(step, MOVE=''){
+jumpTwo(step){
   this.setState({
     stepNumber : step,
     xIsNext : ( step % 2 ) === 0 
