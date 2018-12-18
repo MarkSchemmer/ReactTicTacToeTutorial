@@ -32,12 +32,10 @@ const Board = (props) => {
        } else if(winner === _.gameOptions.TIE) {
            status = <h3>Tie Game!</h3>
        } else {
-           status = <h3>Next Player: <strong> { xIsNext ? 'X' : 'O' } </strong></h3>
+           status = <h3 id="moveHeader">Next Player: <strong> { xIsNext ? 'X' : 'O' } </strong></h3>
        }
 
         return (
-          <React.Fragment>
-
           <div style={boardStyles} id="board">
                     { status }
                 {
@@ -48,12 +46,13 @@ const Board = (props) => {
                                 click={click} 
                                 squareNumber={[x,y]} 
                                 isWinningSquare={subLevel.isWinningSquare}
-                                value={subLevel.val} />
+                                value={subLevel.val}
+                                id={subLevel._id}
+                                 />
                        })
                     })
                 }
           </div>
-          </React.Fragment>
         )
     }
 

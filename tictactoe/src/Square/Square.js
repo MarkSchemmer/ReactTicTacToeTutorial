@@ -3,7 +3,7 @@ import './Square.css'
 
 const Square = (props) => {
 
-    const { click, squareNumber, value, isWinningSquare } = props
+    const { click, squareNumber, value, isWinningSquare, id } = props
     const [x,y] = squareNumber
 
     const squareStyles = {
@@ -17,7 +17,7 @@ const Square = (props) => {
     }
 
     return (
-        <div onClick={() => click(x,y) } style={squareStyles} className="square">
+        <div onClick={() => click(x,y) } style={squareStyles} className="square" id={id}>
             { value ? <span>{value}</span> : null}
         </div>
     )

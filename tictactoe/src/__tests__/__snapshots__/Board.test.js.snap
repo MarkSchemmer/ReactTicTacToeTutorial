@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Board matching snapshot test  testing board snpashot 1`] = `
+<div
+  id="board"
+  style={
+    Object {
+      "height": "600px",
+      "margin": "auto",
+      "width": "400px",
+    }
+  }
+>
+  <h3
+    id="moveHeader"
+  >
+    Next Player: 
+    <strong>
+       
+      X
+       
+    </strong>
+  </h3>
+  <div
+    className="square"
+    id={1}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={2}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={3}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={4}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={5}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={6}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={8}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={9}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+  <div
+    className="square"
+    id={10}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+        "border": "1px solid black",
+        "display": "inline-block",
+        "height": "100px",
+        "margin": "0",
+        "marginRight": "2px",
+        "width": "110px",
+      }
+    }
+  />
+</div>
+`;

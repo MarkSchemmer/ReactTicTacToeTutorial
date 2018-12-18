@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Board from './Board/Board'
 import PastMoves from './PastMoves/PastMoves'
 import * as _ from './Helpers/calculateWinner'
-//import logo from './logo.svg';
 import './App.css';
 
 /*
-
 
   Adding X,Y coordinates for tic tac toe... 
 
@@ -18,7 +16,6 @@ import './App.css';
   I solved this issue by making squares a multi dimensional array
   then just passing through the right index to the clickSquare function
   and in the calculateWinner function I just flattened the multi dimensional array 
-
 
 */
 
@@ -47,9 +44,7 @@ class App extends Component {
 
 
   toggleMoves () {
-
     let newHistory = this.state.history.reverse()
-
     this.setState( (prevState) => ({
       history : newHistory, 
     }))
