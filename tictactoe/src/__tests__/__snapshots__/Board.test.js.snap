@@ -23,7 +23,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   </h3>
   <div
     className="square"
-    id={1}
+    id="square-1"
     onClick={[Function]}
     style={
       Object {
@@ -39,7 +39,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={2}
+    id="square-2"
     onClick={[Function]}
     style={
       Object {
@@ -55,7 +55,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={3}
+    id="square-3"
     onClick={[Function]}
     style={
       Object {
@@ -71,7 +71,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={4}
+    id="square-4"
     onClick={[Function]}
     style={
       Object {
@@ -87,7 +87,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={5}
+    id="square-5"
     onClick={[Function]}
     style={
       Object {
@@ -103,7 +103,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={6}
+    id="square-6"
     onClick={[Function]}
     style={
       Object {
@@ -119,7 +119,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={8}
+    id="square-8"
     onClick={[Function]}
     style={
       Object {
@@ -135,7 +135,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={9}
+    id="square-9"
     onClick={[Function]}
     style={
       Object {
@@ -151,7 +151,7 @@ exports[` Board matching snapshot test  testing board snpashot 1`] = `
   />
   <div
     className="square"
-    id={10}
+    id="square-10"
     onClick={[Function]}
     style={
       Object {

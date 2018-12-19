@@ -1,12 +1,13 @@
-import React from 'react'
-import './Square.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Square.css';
 
-const Square = (props) => {
+const Square  = (props) => {
 
-    const { click, squareNumber, value, isWinningSquare, id } = props
-    const [x,y] = squareNumber
+    let { click, squareNumber, value, isWinningSquare, id } = props
+    let [x,y] = squareNumber
 
-    const squareStyles = {
+    let squareStyles = {
         width:'110px',
         height:'100px',
         border:'1px solid black',
@@ -17,11 +18,13 @@ const Square = (props) => {
     }
 
     return (
-        <div onClick={() => click(x,y) } style={squareStyles} className="square" id={id}>
+        <div onClick={() => click(x,y) } style={squareStyles} className="square" id={`square-${id}`}>
             { value ? <span>{value}</span> : null}
         </div>
     )
 }
+
+
 
 
 export default Square

@@ -1,6 +1,7 @@
 import React from 'react'
 import Board from '../Board/Board'
 import Square from '../Square/Square'
+import sinon from 'sinon'
 import renderer from 'react-test-renderer'
 import toJson from 'enzyme-to-json'
 import Enzyme, { shallow, mount, render } from 'enzyme';
@@ -24,7 +25,7 @@ const multiDimTicTacScoreBoard = [...Array(3).keys()]
                     isWinningSquare:false}) ))
 
 
-describe('Board', () => {
+describe(' static Board tests ', () => {
     let wrapper 
     beforeAll(() => {
         wrapper = shallow( <Board
@@ -55,9 +56,16 @@ describe('Board', () => {
         expect(wrapper.find('#moveHeader').length).toBe(1)
         expect(wrapper.find('#moveHeader').text()).toBe('Next Player:  X ')
     })
-    
-
 })
+
+
+// simulating click on first button 
+// which should give a X 
+// need to simulate the first square
+// How?
+
+
+
 
 
 

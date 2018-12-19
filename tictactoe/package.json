@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "sinon": "^7.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
